@@ -38,7 +38,7 @@ pipeline {
 		}
 		stage('dep') {
 			steps {
-				sh 'echo "Running dep : '
+				sh 'echo "Running dep : "'
 				sh 'dep ensure -update'
 			}
 		}
