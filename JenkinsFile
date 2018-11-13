@@ -1,17 +1,10 @@
 pipeline {
 	agent { docker { image 'golang' } }
 	stages {
-		stage('build') {
+		stage('install') {
 			steps {
-				sh 'echo "Go version :"'
-				sh 'go version'
-				sh 'echo "Hello.go :"'
-				sh 'go build hello.go'
-			}
-		}
-		stage('deploy') {
-			steps {
-				sh 'go run deploy/deploy.go'
+				sh 'echo "Go install with go get :"'
+				sh 'go get github.com/MuchChaca/JenkinsTest'
 			}
 		}
 	}
