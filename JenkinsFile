@@ -5,9 +5,16 @@ pipeline {
 		APP_DEBUG   = 'true'
 		DB_ENGINE   = 'mysql'
 	}
-	
+	// "github.com/golang/example/stringutil"
 	stages {
-		stage('download') {
+		stage('dependencies') {
+			steps {
+				sh 'echo "Fetching dependencies :"'
+				sh 'go get -u github.com/golang/example/stringutil'
+				
+			}
+		}
+		stage('app') {
 			steps {
 				sh 'echo "Go build :"'
 				sh 'go get -d github.com/MuchChaca/JenkinsTest'
