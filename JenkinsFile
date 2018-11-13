@@ -11,7 +11,7 @@ pipeline {
 			steps {
 				sh 'echo "Fetching dependencies :"'
 				sh 'echo "  Getting dep"'
-				sh 'go get -u -v github.com/golang/dep/cmd/dep'
+				sh 'apk add dep'
 				
 			}
 		}
