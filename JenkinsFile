@@ -10,7 +10,7 @@ pipeline {
 		stage('dependencies') {
 			steps {
 				sh 'echo "Fetching dependencies :"'
-				sh '  Getting dep'
+				sh 'echo "  Getting dep"'
 				sh 'go get -u -v github.com/golang/dep/cmd/dep'
 				
 			}
@@ -36,7 +36,6 @@ pipeline {
 				sh 'echo "DB_ENGINE :" $DB_ENGINE'
 			}
 		}
-		// Optionally
 		stage('dep') {
 			steps {
 				sh 'echo "Running dep : '
