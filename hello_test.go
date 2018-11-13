@@ -17,15 +17,26 @@ limitations under the License.
 package main
 
 import (
-	"fmt"
-
-	"github.com/golang/example/stringutil"
+	"testing"
 )
 
-func main() {
-	fmt.Println(goreverse("!selpmaxe oG ,olleH"))
-}
-
-func goreverse(str string) string {
-	return stringutil.Reverse(str)
+func Test_goreverse(t *testing.T) {
+	type args struct {
+		str string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{"a string as arg", args{"gnirts"}, "string"},
+		{"a number as arg", args{"42"}, "24"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := goreverse(tt.args.str); got != tt.want {
+				t.Errorf("goreverse() = %v, want %v", got, tt.want)
+			}
+		})
+	}
 }
