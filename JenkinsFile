@@ -7,10 +7,17 @@ pipeline {
 	}
 	
 	stages {
-		stage('install') {
+		stage('build') {
 			steps {
-				sh 'echo "Go install with go get :"'
-				sh 'go get github.com/MuchChaca/JenkinsTest'
+				sh 'echo "Go build :"'
+				sh 'go build hello.go'
+			}
+		}
+		stage('envs') {
+			steps {
+				sh 'echo "*********  ENV VARIABLES  "*********'
+				sh 'echo "APP_DEBUG :" $APP_DEBUG'
+				sh 'echo "DB_ENGINE :" $DB_ENGINE'
 			}
 		}
 	}
