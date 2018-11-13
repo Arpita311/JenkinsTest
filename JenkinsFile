@@ -10,9 +10,9 @@ pipeline {
 		stage('dependencies') {
 			steps {
 				sh 'echo "Fetching dependencies :"'
-				sh 'echo "  Getting dep"'
-				sh 'apk add dep'
-				
+				// sh 'echo "  Getting dep"'
+				// sh 'apk add dep'
+				sh 'go get -d -v github.com/golang/example/stringutil'
 			}
 		}
 		stage('app') {
@@ -36,12 +36,12 @@ pipeline {
 				sh 'echo "DB_ENGINE :" $DB_ENGINE'
 			}
 		}
-		stage('dep') {
-			steps {
-				sh 'echo "Running dep : "'
-				sh '$GOBIN/dep ensure -update'
-			}
-		}
+		// stage('dep') {
+		// 	steps {
+		// 		sh 'echo "Running dep : "'
+		// 		sh '$GOBIN/dep ensure -update'
+		// 	}
+		// }
 		stage('tests') {
 			steps {
 				sh 'echo "Tests : "'
