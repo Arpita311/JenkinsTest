@@ -6,7 +6,7 @@ pipeline {
 				sh 'echo "Go version :"'
 				sh 'go version'
 				sh 'echo "Hello.go :"'
-				sh 'go run hello.go'
+				sh 'go build hello.go'
 			}
 		}
 		stage('deploy') {
