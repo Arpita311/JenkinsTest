@@ -7,9 +7,17 @@ pipeline {
 	}
 	
 	stages {
+		stage('download') {
+			steps {
+				sh 'echo "Go build :"'
+				sh 'go get -d github.com/MuchChaca/JenkinsTest'
+				
+			}
+		}
 		stage('build') {
 			steps {
 				sh 'echo "Go build :"'
+				sh 'cd $GOPATH/src/github.com/MuchChaca/JenkinsTest'
 				sh 'go build hello.go'
 			}
 		}
