@@ -5,19 +5,20 @@ pipeline {
 		APP_DEBUG   = 'true'
 		DB_ENGINE   = 'mysql'
 	}
-	// "github.com/golang/example/stringutil"
+	
 	stages {
 		stage('dependencies') {
 			steps {
 				sh 'echo "Fetching dependencies :"'
-				sh 'go get -u github.com/golang/example/stringutil'
+				sh '  Getting dep'
+				sh 'go get -u -v github.com/golang/dep/cmd/dep'
 				
 			}
 		}
 		stage('app') {
 			steps {
 				sh 'echo "Go build :"'
-				sh 'go get -d github.com/MuchChaca/JenkinsTest'
+				sh 'go get -d -v github.com/MuchChaca/JenkinsTest'
 				
 			}
 		}
@@ -33,6 +34,19 @@ pipeline {
 				sh 'echo "*********  ENV VARIABLES  "*********'
 				sh 'echo "APP_DEBUG :" $APP_DEBUG'
 				sh 'echo "DB_ENGINE :" $DB_ENGINE'
+			}
+		}
+		// Optionally
+		stage('dep') {
+			steps {
+				sh 'echo "Running dep : '
+				sh 'dep ensure -update'
+			}
+		}
+		stage('tests') {
+			steps {
+				sh 'echo "Tests : '
+				sh 'go test -v -race ./...'
 			}
 		}
 	}
