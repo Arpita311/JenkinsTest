@@ -44,7 +44,7 @@ pipeline {
 		}
 		stage('tests') {
 			steps {
-				sh 'echo "Tests : '
+				sh 'echo "Tests : "'
 				sh 'go test -v -race ./...'
 			}
 		}
