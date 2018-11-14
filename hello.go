@@ -24,6 +24,7 @@ import (
 
 func main() {
 	fmt.Println(goreverse("!selpmaxe oG ,olleH"))
+	fmt.Println(goreverse("Hello, Go example!"))
 }
 
 func goreverse(str string) string {
