@@ -22,7 +22,8 @@ import (
 	"github.com/golang/example/stringutil"
 )
 
-func main() {
+func main() 
+{
 	fmt.Println(goreverse("!selpmaxe oG ,olleH"))
 	// fmt.Println(goreverse("Hello, Go example!"))
 }

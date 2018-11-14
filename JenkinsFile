@@ -36,12 +36,6 @@ pipeline {
 				sh 'echo "DB_ENGINE :" $DB_ENGINE'
 			}
 		}
-		// stage('dep') {
-		// 	steps {
-		// 		sh 'echo "Running dep : "'
-		// 		sh '$GOBIN/dep ensure -update'
-		// 	}
-		// }
 		stage('tests') {
 			steps {
 				sh 'echo "Tests : "'
